@@ -19,7 +19,7 @@ now = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
 def lambda_handler(event, context):
 
 # extract the two numbers from the Lambda service's event object
-    mathResult = math.pow(int(event['base']), int(event['exponent']))
+    mathResult = math.pow(float(event['base']), float(event['exponent']))
 
 # write result and time to the DynamoDB table using the object we instantiated and save response in a variable
     response = table.put_item(
